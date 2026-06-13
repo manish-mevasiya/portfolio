@@ -102,9 +102,11 @@ class TimelineTile extends StatelessWidget {
             child: Column(
               children: [
                 if (!isFirst)
-                  Container(
-                    width: 2,
-                    color: Colors.white24,
+                  Expanded(
+                    child: Container(
+                      width: 2,
+                      color: Colors.white24,
+                    ),
                   ),
       
                 Container(
@@ -129,9 +131,11 @@ class TimelineTile extends StatelessWidget {
                 ),
       
                 if (!isLast)
-                  Container(
-                    width: 2,
-                    color: Colors.white24,
+                  Expanded(
+                    child: Container(
+                      width: 2,
+                      color: Colors.white24,
+                    ),
                   ),
               ],
             ),
