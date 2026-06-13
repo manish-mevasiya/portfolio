@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:path_provider/path_provider.dart';
 
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_strings.dart';
@@ -140,26 +144,11 @@ class HeroSection extends StatelessWidget {
                 textAlign: TextAlign.justify,
               ),
 
-              const SizedBox(height: 35),
+              const SizedBox(height: 25),
 
-              Wrap(
-                spacing: 15,
-                runSpacing: 15,
-                children: [
-
-                  CustomButton(
-                    title: "Download Resume",
-                    onTap: (){},
-                  ),
-
-                  // const SizedBox(width: 15),
-
-                  // CustomButton(
-                  //   title: "LinkedIn",
-                  //   isPrimary: false,
-                  //   onTap: _launchLinkedIn,
-                  // ),
-                ],
+              CustomButton(
+                title: "Download Resume",
+                onTap: () => downloadResume(),
               ),
             ],
           ),
@@ -290,10 +279,7 @@ class HeroSection extends StatelessWidget {
             animatedTexts: [
               TypewriterAnimatedText(
                 "Flutter Developer",
-                speed:
-                const Duration(
-                  milliseconds: 100,
-                ),
+                speed: const Duration(milliseconds: 100),
                 textStyle:
                 const TextStyle(
                   fontSize: 18,
@@ -303,12 +289,8 @@ class HeroSection extends StatelessWidget {
               ),
               TypewriterAnimatedText(
                 "Mobile App Developer",
-                speed:
-                const Duration(
-                  milliseconds: 100,
-                ),
-                textStyle:
-                const TextStyle(
+                speed: const Duration(milliseconds: 100),
+                textStyle: const TextStyle(
                   fontSize: 18,
                   fontWeight:
                   FontWeight.w600,
@@ -332,9 +314,14 @@ class HeroSection extends StatelessWidget {
 
         CustomButton(
           title: "Download Resume",
-          onTap: (){},
+          onTap: () async => downloadResume(),
         ),
       ],
     );
+  }
+
+  Future<void> downloadResume() async {
+    final url = Uri.parse('https://manishmevasiyaa.web.app/resume/manish_mevasiya_cv.pdf');
+    await launchUrl(url, webOnlyWindowName: '_blank');
   }
 }

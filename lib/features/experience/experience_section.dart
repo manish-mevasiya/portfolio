@@ -24,8 +24,9 @@ class ExperienceSection extends StatelessWidget {
           const SizedBox(height: 60),
 
           ConstrainedBox(
-            constraints: const BoxConstraints(
+            constraints: BoxConstraints(
               maxWidth: 1000,
+              minHeight: MediaQuery.of(context).size.height,
             ),
             child: const Column(
               children: [
@@ -93,143 +94,147 @@ class TimelineTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isMobile =  Responsive.isMobile(context);
-    return IntrinsicHeight(
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if(!isMobile) SizedBox(
-            width: 50,
-            child: Column(
-              children: [
-                if (!isFirst)
-                  Expanded(
-                    child: Container(
-                      width: 2,
-                      color: Colors.white24,
-                    ),
-                  ),
-      
-                Container(
-                  width: 18,
-                  height: 18,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    gradient:
-                    const LinearGradient(
-                      colors: [
-                        Color(0xff3B82F6),
-                        Color(0xff8B5CF6),
-                      ],
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.blue.withOpacity(.5),
-                        blurRadius: 20,
-                      ),
-                    ],
+    return isMobile ? _buildContent(context) :
+    IntrinsicHeight(
+      child: _buildContent(context),
+    );
+  }
+
+  Widget _buildContent(BuildContext context){
+    final isMobile =  Responsive.isMobile(context);
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if(!isMobile) SizedBox(
+          width: 50,
+          child: Column(
+            children: [
+              if (!isFirst)
+                Expanded(
+                  child: Container(
+                    width: 2,
+                    color: Colors.white24,
                   ),
                 ),
-      
-                if (!isLast)
-                  Expanded(
-                    child: Container(
-                      width: 2,
-                      color: Colors.white24,
-                    ),
+
+              Container(
+                width: 18,
+                height: 18,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient:
+                  const LinearGradient(
+                    colors: [
+                      Color(0xff3B82F6),
+                      Color(0xff8B5CF6),
+                    ],
                   ),
-              ],
-            ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.blue.withOpacity(.5),
+                      blurRadius: 20,
+                    ),
+                  ],
+                ),
+              ),
+
+              if (!isLast)
+                Expanded(
+                  child: Container(
+                    width: 2,
+                    color: Colors.white24,
+                  ),
+                ),
+            ],
           ),
-      
-          const SizedBox(width: 20),
-      
-          Expanded(
-            child: GlassCard(
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+        ),
+
+        const SizedBox(width: 20),
+
+        Expanded(
+          child: GlassCard(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight:
+                    FontWeight.bold,
+                  ),
+                ),
+
+                const SizedBox(height: 8),
+
+                Row(
                   children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                        fontSize: 24,
-                        fontWeight:
-                        FontWeight.bold,
-                      ),
+                    Icon(
+                      Icons.home_work_sharp,
+                      color: Colors.white.withOpacity(.8),
+                      size: 16,
                     ),
-                
-                    const SizedBox(height: 8),
-                
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.home_work_sharp,
-                          color: Colors.white.withOpacity(.8),
-                          size: 16,
-                        ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: Text(
-                            company,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.white.withOpacity(.8),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                
-                    const SizedBox(height: 8),
-                
-                    Container(
-                      padding:
-                      const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 6,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.blue
-                            .withOpacity(.1),
-                        borderRadius:
-                        BorderRadius.circular(
-                          20,
-                        ),
-                      ),
+                    const SizedBox(width: 8),
+                    Expanded(
                       child: Text(
-                        duration,
-                      ),
-                    ),
-                
-                    const SizedBox(height: 20),
-                
-                    ...responsibilities.map((item) => Padding(
-                        padding: const EdgeInsets.only(bottom: 10),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Icon(
-                              Icons.check_circle,
-                              size: 18,
-                              color: Colors.green,
-                            ),
-                            const SizedBox(width: 10),
-                            Expanded(
-                              child: Text(item),
-                            ),
-                          ],
+                        company,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: Colors.white.withOpacity(.8),
                         ),
                       ),
                     ),
                   ],
                 ),
-              ),
+
+                const SizedBox(height: 8),
+
+                Container(
+                  padding:
+                  const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 6,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue
+                        .withOpacity(.1),
+                    borderRadius:
+                    BorderRadius.circular(
+                      20,
+                    ),
+                  ),
+                  child: Text(
+                    duration,
+                  ),
+                ),
+
+                const SizedBox(height: 20),
+
+                ...responsibilities.map((item) => Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Icon(
+                        Icons.check_circle,
+                        size: 18,
+                        color: Colors.green,
+                      ),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Text(item),
+                      ),
+                    ],
+                  ),
+                ),
+                ),
+              ],
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

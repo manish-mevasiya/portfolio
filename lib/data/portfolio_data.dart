@@ -2,15 +2,15 @@ class PortfolioData {
   static const skills = [
     "Flutter",
     "Dart",
+    "Android",
     "Java",
-    "Provider",
     "GetX",
-    "Firebase",
+    "Provider",
     "REST APIs",
+    "Firebase",
     "SQLite",
     "Git",
     "GitHub",
     "GitLab",
-    "Android",
   ];
 }
