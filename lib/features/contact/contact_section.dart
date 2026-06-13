@@ -10,17 +10,17 @@ class ContactSection extends StatelessWidget {
   const ContactSection({super.key});
 
   Future<void> _launchLinkedIn() async {
-    final uri =
-    Uri.parse(AppStrings.linkedIn);
+    final uri = Uri.parse(AppStrings.linkedIn);
+    await launchUrl(uri);
+  }
 
+  Future<void> _launchGitHub() async {
+    final uri = Uri.parse(AppStrings.gitHub);
     await launchUrl(uri);
   }
 
   Future<void> _launchEmail() async {
-    final uri = Uri.parse(
-      'mailto:${AppStrings.email}',
-    );
-
+    final uri = Uri.parse('mailto:${AppStrings.email}');
     await launchUrl(uri);
   }
 
@@ -41,9 +41,7 @@ class ContactSection extends StatelessWidget {
           const SizedBox(height: 50),
 
           ConstrainedBox(
-            constraints: const BoxConstraints(
-              maxWidth: 1000,
-            ),
+            constraints: const BoxConstraints(maxWidth: 1000),
             child: GlassCard(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,8 +51,7 @@ class ContactSection extends StatelessWidget {
                     "Interested in working together?",
                     style: TextStyle(
                       fontSize: 32,
-                      fontWeight:
-                      FontWeight.bold,
+                      fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.start,
                   ),
@@ -63,31 +60,27 @@ class ContactSection extends StatelessWidget {
 
                   const Text(
                     "I'm open to Flutter Developer opportunities, freelance projects and collaboration.",
-                    // textAlign: TextAlign.center,
                   ),
 
                   const SizedBox(height: 40),
 
                   const ContactItem(
                     icon: Icons.email,
-                    title:
-                    AppStrings.email,
+                    title: AppStrings.email,
                   ),
 
                   const SizedBox(height: 15),
 
                   const ContactItem(
                     icon: Icons.phone,
-                    title:
-                    AppStrings.phone,
+                    title: AppStrings.phone,
                   ),
 
                   const SizedBox(height: 15),
 
                   const ContactItem(
                     icon: Icons.location_on,
-                    title:
-                    AppStrings.location,
+                    title: AppStrings.location,
                   ),
 
                   const SizedBox(height: 40),
@@ -95,24 +88,24 @@ class ContactSection extends StatelessWidget {
                   Wrap(
                     spacing: 15,
                     runSpacing: 15,
-                    alignment:
-                    WrapAlignment.center,
+                    alignment: WrapAlignment.center,
                     children: [
 
                       CustomButton(
-                        title:
-                        "Email Me",
-                        onTap:
-                        _launchEmail,
+                        title: "Email Me",
+                        onTap: _launchEmail,
                       ),
 
                       CustomButton(
-                        title:
-                        "LinkedIn",
-                        isPrimary:
-                        false,
-                        onTap:
-                        _launchLinkedIn,
+                        title: "LinkedIn",
+                        isPrimary: false,
+                        onTap: _launchLinkedIn,
+                      ),
+
+                      CustomButton(
+                        title: "GitHub",
+                        isPrimary: false,
+                        onTap: _launchGitHub,
                       ),
                     ],
                   ),
@@ -126,10 +119,7 @@ class ContactSection extends StatelessWidget {
           Text(
             "© 2026 Manish Mevasiya",
             style: TextStyle(
-              color:
-              Colors.white.withOpacity(
-                .5,
-              ),
+              color: Colors.white.withOpacity(.5),
             ),
           ),
         ],
@@ -138,8 +128,7 @@ class ContactSection extends StatelessWidget {
   }
 }
 
-class ContactItem
-    extends StatelessWidget {
+class ContactItem extends StatelessWidget {
   final IconData icon;
   final String title;
 

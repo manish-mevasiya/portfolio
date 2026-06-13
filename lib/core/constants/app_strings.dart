@@ -1,23 +1,19 @@
 class AppStrings {
   AppStrings._();
 
-  static const name =
-      "Manish Mevasiya";
+  static const name = "Manish Mevasiya";
 
-  static const role =
-      "Flutter Developer";
+  static const role = "Flutter Developer";
 
-  static const email =
-      "manishmevasiya53@gmail.com";
+  static const email = "manishmevasiya53@gmail.com";
 
-  static const phone =
-      "+91 9510870769";
+  static const phone = "+91 9510870769";
 
-  static const location =
-      "Rajkot, Gujarat, India";
+  static const location = "Rajkot, Gujarat, India";
 
-  static const linkedIn =
-      "https://www.linkedin.com/in/manish-mevasiya";
+  static const linkedIn = "https://www.linkedin.com/in/manish-mevasiya";
+
+  static const gitHub = "https://github.com/manish-mevasiya";
 
   // static const about =
   //     "Flutter Developer with 2+ years of experience building high-performance cross-platform mobile applications using Flutter and Dart. Experienced in REST API integration, Firebase, Provider, GetX and app deployment.";
