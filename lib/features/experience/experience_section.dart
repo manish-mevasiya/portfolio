@@ -37,13 +37,11 @@ class ExperienceSection extends StatelessWidget {
                   duration: "Apr 2024 - March 2026",
                   responsibilities: [
                     "Developed and maintained cross-platform mobile applications using Flutter and Dart.",
-                    "Built and enhanced production-ready white-label applications for Android and iOS platforms.",
-                    "Integrated REST APIs for dynamic data management and seamless communication with backend systems.",
-                    "Implemented state management using GetX and Provider for scalable and maintainable applications.",
-                    "Integrated Firebase Authentication, Google Sign-In, and Firebase Cloud Messaging (FCM).",
-                    "Worked on application deployment and release management for Google Play Store and Apple App Store.",
-                    "Collaborated with backend developers, QA engineers, and project stakeholders to deliver high-qualitysolutions.",
-                    "Improved application performance, resolved production issues, and optimized user experience."
+                    "Integrated REST APIs and managed state using GetX for efficient performance.",
+                    "Successfully deployed applications on Google Play Store and Apple App Store.",
+                    "Built and optimized features for an 'Online Exam Solution' app used by real users.",
+                    "Improved app performance and code quality by refactoring existing codebase.",
+                    "Collaborated with backend developers, QA testers, and product managers in agile environment.",
                   ],
                 ),
 
@@ -55,11 +53,10 @@ class ExperienceSection extends StatelessWidget {
                   company: "Conduct Exam Technologies LLP",
                   duration: "Apr 2024 - Sep 2024",
                   responsibilities: [
-                    "Developed responsive UI components using Flutter.",
-                    "Integrated REST APIs and Firebase services.",
-                    "Worked with SQLite for local data storage.",
-                    "Fixed bugs and enhanced existing application features.",
-                    "Learned production-level Flutter development practices and mobile app deployment processes."
+                    "Learned and implemented Flutter fundamentals to build responsive UI.",
+                    "Worked with REST APIs, Firebase, and local databases like SQLite.",
+                    "Assisted in developing features and fixing bugs in live projects.",
+                    "Gained hands-on experience with state management, version control, and mobile application deployment processes.",
                   ],
                 ),
               ],

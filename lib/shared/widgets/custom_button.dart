@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../core/constants/app_colors.dart';
 
 class CustomButton extends StatelessWidget {
@@ -17,28 +16,22 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      borderRadius:
-      BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(14),
       onTap: onTap,
       child: Container(
-        padding:
-        const EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           horizontal: 24,
           vertical: 14,
         ),
         decoration: BoxDecoration(
-          gradient: isPrimary
-              ? const LinearGradient(
+          gradient: isPrimary ? const LinearGradient(
             colors: [
               AppColors.primary,
               AppColors.secondary,
             ],
-          )
-              : null,
-          color:
-          isPrimary ? null : Colors.transparent,
-          borderRadius:
-          BorderRadius.circular(14),
+          ) : null,
+          color: isPrimary ? null : Colors.transparent,
+          borderRadius: BorderRadius.circular(14),
           border: Border.all(
             color: AppColors.primary,
           ),
