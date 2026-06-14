@@ -23,43 +23,45 @@ class ExperienceSection extends StatelessWidget {
 
           const SizedBox(height: 60),
 
-          ConstrainedBox(
-            constraints: BoxConstraints(
-              maxWidth: 1000,
-              minHeight: MediaQuery.of(context).size.height,
-            ),
-            child: const Column(
-              children: [
-                TimelineTile(
-                  isFirst: true,
-                  title: "Flutter Developer",
-                  company: "Conduct Exam Technologies LLP",
-                  duration: "Apr 2024 - March 2026",
-                  responsibilities: [
-                    "Developed and maintained cross-platform mobile applications using Flutter and Dart.",
-                    "Integrated REST APIs and managed state using GetX for efficient performance.",
-                    "Successfully deployed applications on Google Play Store and Apple App Store.",
-                    "Built and optimized features for an 'Online Exam Solution' app used by real users.",
-                    "Improved app performance and code quality by refactoring existing codebase.",
-                    "Collaborated with backend developers, QA testers, and product managers in agile environment.",
-                  ],
-                ),
+          SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(
+                maxWidth: 1000,
+              ),
+              child: const Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TimelineTile(
+                    isFirst: true,
+                    title: "Flutter Developer",
+                    company: "Conduct Exam Technologies LLP",
+                    duration: "Apr 2024 - March 2026",
+                    responsibilities: [
+                      "Developed and maintained cross-platform mobile applications using Flutter and Dart.",
+                      "Integrated REST APIs and managed state using GetX for efficient performance.",
+                      "Successfully deployed applications on Google Play Store and Apple App Store.",
+                      "Built and optimized features for an 'Online Exam Solution' app used by real users.",
+                      "Improved app performance and code quality by refactoring existing codebase.",
+                      "Collaborated with backend developers, QA testers, and product managers in agile environment.",
+                    ],
+                  ),
 
-                SizedBox(height: 40),
+                  SizedBox(height: 40),
 
-                TimelineTile(
-                  isLast: true,
-                  title: "Flutter Intern",
-                  company: "Conduct Exam Technologies LLP",
-                  duration: "Apr 2024 - Sep 2024",
-                  responsibilities: [
-                    "Learned and implemented Flutter fundamentals to build responsive UI.",
-                    "Worked with REST APIs, Firebase, and local databases like SQLite.",
-                    "Assisted in developing features and fixing bugs in live projects.",
-                    "Gained hands-on experience with state management, version control, and mobile application deployment processes.",
-                  ],
-                ),
-              ],
+                  TimelineTile(
+                    isLast: true,
+                    title: "Flutter Intern",
+                    company: "Conduct Exam Technologies LLP",
+                    duration: "Apr 2024 - Sep 2024",
+                    responsibilities: [
+                      "Learned and implemented Flutter fundamentals to build responsive UI.",
+                      "Worked with REST APIs, Firebase, and local databases like SQLite.",
+                      "Assisted in developing features and fixing bugs in live projects.",
+                      "Gained hands-on experience with state management, version control, and mobile application deployment processes.",
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ],
@@ -90,64 +92,13 @@ class TimelineTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isMobile =  Responsive.isMobile(context);
-    return isMobile ? _buildContent(context) :
-    IntrinsicHeight(
-      child: _buildContent(context),
-    );
+    return _buildContent(context);
   }
 
-  Widget _buildContent(BuildContext context){
-    final isMobile =  Responsive.isMobile(context);
+  Widget _buildContent(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if(!isMobile) SizedBox(
-          width: 50,
-          child: Column(
-            children: [
-              if (!isFirst)
-                Expanded(
-                  child: Container(
-                    width: 2,
-                    color: Colors.white24,
-                  ),
-                ),
-
-              Container(
-                width: 18,
-                height: 18,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  gradient:
-                  const LinearGradient(
-                    colors: [
-                      Color(0xff3B82F6),
-                      Color(0xff8B5CF6),
-                    ],
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.blue.withOpacity(.5),
-                      blurRadius: 20,
-                    ),
-                  ],
-                ),
-              ),
-
-              if (!isLast)
-                Expanded(
-                  child: Container(
-                    width: 2,
-                    color: Colors.white24,
-                  ),
-                ),
-            ],
-          ),
-        ),
-
-        const SizedBox(width: 20),
-
         Expanded(
           child: GlassCard(
             child: Column(
@@ -158,52 +109,32 @@ class TimelineTile extends StatelessWidget {
                   title,
                   style: const TextStyle(
                     fontSize: 24,
-                    fontWeight:
-                    FontWeight.bold,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
 
                 const SizedBox(height: 8),
 
-                Row(
-                  children: [
-                    Icon(
-                      Icons.home_work_sharp,
-                      color: Colors.white.withOpacity(.8),
-                      size: 16,
-                    ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Text(
-                        company,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          color: Colors.white.withOpacity(.8),
-                        ),
-                      ),
-                    ),
-                  ],
+                Text(
+                  company,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: Colors.white.withOpacity(.8),
+                  ),
                 ),
 
                 const SizedBox(height: 8),
 
                 Container(
-                  padding:
-                  const EdgeInsets.symmetric(
+                  padding: const EdgeInsets.symmetric(
                     horizontal: 12,
                     vertical: 6,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.blue
-                        .withOpacity(.1),
-                    borderRadius:
-                    BorderRadius.circular(
-                      20,
-                    ),
+                    color: Colors.blue.withOpacity(.1),
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  child: Text(
-                    duration,
-                  ),
+                  child: Text(duration),
                 ),
 
                 const SizedBox(height: 20),
@@ -225,8 +156,7 @@ class TimelineTile extends StatelessWidget {
                       ),
                     ],
                   ),
-                ),
-                ),
+                )),
               ],
             ),
           ),

@@ -46,7 +46,6 @@ class ContactSection extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-
                   const Text(
                     "Interested in working together?",
                     style: TextStyle(
@@ -88,7 +87,7 @@ class ContactSection extends StatelessWidget {
                   Wrap(
                     spacing: 15,
                     runSpacing: 15,
-                    alignment: WrapAlignment.center,
+                    alignment: WrapAlignment.start,
                     children: [
 
                       CustomButton(

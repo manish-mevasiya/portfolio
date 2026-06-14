@@ -40,7 +40,7 @@ class ProjectsSection extends StatelessWidget {
                       : 550,
                   title: "Online Exam Software",
                   image: "assets/images/exam.png",
-                  description: "A comprehensive white-label online examination application that enables students to take tests and exams directly from mobile devices. The platform provides instant result analysis, performance tracking, learning resources, and secure exam workflows.",
+                  description: "Developed a white-label online examination application with secure exam workflows, section-wise timers, auto submission, instant result analysis, question bookmarking, study materials, learning videos, Face Login, and push notifications. Integrated REST APIs and Firebase services for Android and iOS platforms using Flutter, Dart, and GetX.",
                   keyfeature: const[
                     "• Online examinations with section-wise timers and auto submission",
                     "• Instant result generation and detailed performance analysis",
@@ -66,7 +66,7 @@ class ProjectsSection extends StatelessWidget {
                       : 550,
                   title: "Event Management System",
                   image: "assets/images/event.png",
-                  description: "A mobile application designed to streamline event operations by managing events, sub-events, and task assignments. The platform helps teams efficiently coordinate responsibilities and track event-related activities.",
+                  description: "Developed an event management app with event and sub-event tracking, task assignment, role-based workflows, secure authentication, and Google Maps integration. Implemented Provider state management and REST API integration to deliver a scalable and user-friendly solution.",
                   keyfeature: const[
                     "• Event and sub-event management",
                     "• Task assignment and tracking",
